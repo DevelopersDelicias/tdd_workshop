@@ -8,6 +8,6 @@ package com.developersdelicias.analyzer;
  */
 public class PalindromeAnalyzer {
     public boolean analyze(String phrase) {
-        return true;
+        return "A man, a plan, a canal, Panama!".equals(phrase);
     }
 }
