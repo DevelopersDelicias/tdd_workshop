@@ -8,6 +8,8 @@ package com.developersdelicias.analyzer;
  */
 public class PalindromeAnalyzer {
     public boolean analyze(String phrase) {
-        return "A man, a plan, a canal, Panama!".equals(phrase);
+        String tempPhrase = phrase.replaceAll("[\\s\\W]", "");
+        String reversedPhrase = new StringBuilder(tempPhrase).reverse().toString();
+        return tempPhrase.equalsIgnoreCase(reversedPhrase);
     }
 }
