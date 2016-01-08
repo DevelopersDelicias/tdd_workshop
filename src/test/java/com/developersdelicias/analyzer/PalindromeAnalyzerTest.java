@@ -32,5 +32,7 @@ public class PalindromeAnalyzerTest {
         assertFalse(analyzer.analyze("Anything else and more"));
         assertFalse(analyzer.analyze(null));
         assertFalse(analyzer.analyze(""));
+        assertFalse(analyzer.analyze("          "));
+        assertFalse(analyzer.analyze("!#$%&()=?¡¿"));
     }
 }
