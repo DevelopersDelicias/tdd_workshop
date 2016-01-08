@@ -1,5 +1,6 @@
 package com.developersdelicias.util.string;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,5 +22,10 @@ public class PalindromeAnalyzerTest {
     @Test
     public void isPalindromeWithSinglePalindromeMustReturnTrue() {
         assertTrue(instance.isPalindrome("taco cat"));
+    }
+
+    @Test
+    public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {
+        assertFalse(instance.isPalindrome("it is not a palindrome"));
     }
 }
