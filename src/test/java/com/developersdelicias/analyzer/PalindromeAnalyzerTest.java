@@ -22,7 +22,7 @@ public class PalindromeAnalyzerTest {
         assertTrue(analyzer.analyze("Anita lava la tina"));
         assertTrue(analyzer.analyze("Was it a car or a cat I saw?"));
         assertTrue(analyzer.analyze("No 'x' in Nixon"));
-        
+        assertTrue(analyzer.analyze("123321"));
     }
     
     @Test 
@@ -34,5 +34,6 @@ public class PalindromeAnalyzerTest {
         assertFalse(analyzer.analyze(""));
         assertFalse(analyzer.analyze("          "));
         assertFalse(analyzer.analyze("!#$%&()=?¡¿"));
+        assertFalse(analyzer.analyze("1234567890"));
     }
 }
