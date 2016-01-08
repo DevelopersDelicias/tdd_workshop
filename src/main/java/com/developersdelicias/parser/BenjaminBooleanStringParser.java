@@ -35,6 +35,8 @@ public class BenjaminBooleanStringParser implements BooleanStringParser {
                     Integer value = Integer.parseInt(string);
                     if (value >= 1) {
                         result = Boolean.TRUE;                        
+                    } else {
+                        result = Boolean.FALSE;
                     }
                 } catch (NumberFormatException numberFormatException) {
                 }

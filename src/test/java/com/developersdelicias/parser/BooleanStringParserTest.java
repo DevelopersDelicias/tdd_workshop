@@ -19,6 +19,7 @@ public abstract class BooleanStringParserTest {
         assertEquals(Boolean.TRUE, parser.parse("t"));
         assertEquals(Boolean.TRUE, parser.parse("1"));
         assertEquals(Boolean.TRUE, parser.parse("2"));
+        assertEquals(Boolean.TRUE, parser.parse("3"));
     }
     
     @Test
@@ -28,6 +29,7 @@ public abstract class BooleanStringParserTest {
         assertEquals(Boolean.FALSE, parser.parse("false"));
         assertEquals(Boolean.FALSE, parser.parse("f"));
         assertEquals(Boolean.FALSE, parser.parse("0"));
+        assertEquals(Boolean.FALSE, parser.parse("-1"));
     }
     
     @Test
