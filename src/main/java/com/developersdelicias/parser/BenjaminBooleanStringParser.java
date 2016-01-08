@@ -20,14 +20,12 @@ public class BenjaminBooleanStringParser implements BooleanStringParser {
             case "y":
             case "true":
             case "t":
-            case "1":
                 result = Boolean.TRUE;
                 break;
             case "no":
             case "n":
             case "false":
             case "f":
-            case "0":
                 result = Boolean.FALSE;
                 break;
             default:
