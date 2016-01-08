@@ -16,7 +16,8 @@ public class BenjaminBooleanExpressionAnalyzer implements BooleanExpressionAnaly
 
     @Override
     public boolean analyze(String expression) throws MalformedBooleanExpression {
-        return true;
+        String[] words = expression.split(" ");
+        return parser.parse(words[0]) && parser.parse(words[2]);
     }
 
 }
