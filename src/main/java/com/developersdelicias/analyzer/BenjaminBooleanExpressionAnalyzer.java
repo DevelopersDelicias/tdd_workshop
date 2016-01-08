@@ -16,7 +16,7 @@ public class BenjaminBooleanExpressionAnalyzer implements BooleanExpressionAnaly
 
     @Override
     public boolean analyze(String expression) throws MalformedBooleanExpression {
-        return false;
+        return true;
     }
 
 }
