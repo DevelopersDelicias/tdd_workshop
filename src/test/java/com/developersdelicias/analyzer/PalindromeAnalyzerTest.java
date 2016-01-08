@@ -30,5 +30,6 @@ public class PalindromeAnalyzerTest {
         assertFalse(analyzer.analyze("This string is not a palyndrome"));
         assertFalse(analyzer.analyze("Hello World"));
         assertFalse(analyzer.analyze("Anything else and more"));
+        assertFalse(analyzer.analyze(null));
     }
 }
