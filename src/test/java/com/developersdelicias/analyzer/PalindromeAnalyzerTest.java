@@ -31,5 +31,6 @@ public class PalindromeAnalyzerTest {
         assertFalse(analyzer.analyze("Hello World"));
         assertFalse(analyzer.analyze("Anything else and more"));
         assertFalse(analyzer.analyze(null));
+        assertFalse(analyzer.analyze(""));
     }
 }
