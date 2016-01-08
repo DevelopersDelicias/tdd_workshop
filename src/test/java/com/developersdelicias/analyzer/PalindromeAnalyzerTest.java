@@ -24,16 +24,10 @@ public class PalindromeAnalyzerTest {
         
     }
     
-    @Test 
-    public void testAnalyzeNotRealPalindromes() {
-        assertFalse(analyzer.analyze("This string is not a palyndrome"));
-        assertFalse(analyzer.analyze("Hello World"));
-        assertFalse(analyzer.analyze("Anything else and more"));
-        assertFalse(analyzer.analyze(null));
-        assertFalse(analyzer.analyze(""));
-        assertFalse(analyzer.analyze("          "));
-        assertFalse(analyzer.analyze("!#$%&()=?¡¿"));
-        assertFalse(analyzer.analyze("1234567890"));
+    @Test
+    @Parameters(method = "getNotRealPalindromes")
+    public void testAnalyzeNotRealPalindromes(String phrase) {
+        assertFalse(analyzer.analyze(phrase));
     }
     
     public static List<String> getRealPalindromes() {
@@ -51,5 +45,18 @@ public class PalindromeAnalyzerTest {
         realPalindromes.add("123321");
 
         return realPalindromes;
+    }
+    
+    public static List<String> getNotRealPalindromes() {
+        List<String> notRealPalindromes = new ArrayList<>();
+        notRealPalindromes.add("This string is not a palyndrome");
+        notRealPalindromes.add("Hello World");
+        notRealPalindromes.add("Anything else and more");
+        notRealPalindromes.add(null);
+        notRealPalindromes.add("          ");
+        notRealPalindromes.add("!#$%&()=?¡¿");
+        notRealPalindromes.add("1234567890");
+        
+        return notRealPalindromes;
     }
 }
