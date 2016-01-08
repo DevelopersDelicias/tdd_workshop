@@ -18,6 +18,7 @@ public abstract class BooleanStringParserTest {
         assertEquals(Boolean.TRUE, parser.parse("true"));
         assertEquals(Boolean.TRUE, parser.parse("t"));
         assertEquals(Boolean.TRUE, parser.parse("1"));
+        assertEquals(Boolean.TRUE, parser.parse("2"));
     }
     
     @Test

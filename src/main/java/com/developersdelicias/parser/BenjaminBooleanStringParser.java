@@ -30,6 +30,15 @@ public class BenjaminBooleanStringParser implements BooleanStringParser {
             case "0":
                 result = Boolean.FALSE;
                 break;
+            default:
+                try {
+                    Integer value = Integer.parseInt(string);
+                    if (value >= 1) {
+                        result = Boolean.TRUE;                        
+                    }
+                } catch (NumberFormatException numberFormatException) {
+                }
+                
         }
         return result;
     }
