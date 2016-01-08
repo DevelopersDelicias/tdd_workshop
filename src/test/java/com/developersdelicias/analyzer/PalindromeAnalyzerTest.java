@@ -20,7 +20,7 @@ public class PalindromeAnalyzerTest {
     @Test
     @Parameters(method = "getRealPalindromes")
     public void testAnalyzeRealPalindromes(String phrase) {
-        assertTrue(analyzer.analyze(phrase));
+        assertTrue("Phrase \"" + phrase + "\" must be a valid palindrome.", analyzer.analyze(phrase));
         
     }
     
@@ -43,6 +43,7 @@ public class PalindromeAnalyzerTest {
         realPalindromes.add("Was it a car or a cat I saw?");
         realPalindromes.add("No 'x' in Nixon");
         realPalindromes.add("123321");
+        realPalindromes.add("Árbol obra");
 
         return realPalindromes;
     }
