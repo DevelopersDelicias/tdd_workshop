@@ -15,9 +15,9 @@ public abstract class BooleanExpressionAnalyzerTest {
     @Test
     public void testAnalyze() throws Exception {
         assertTrue(analyzer.analyze("true and true"));
-        //assertTrue(analyzer.analyze("yes and yes"));
-        //assertTrue(analyzer.analyze("true and yes"));
-        //assertTrue(analyzer.analyze("yes and true"));
+        assertTrue(analyzer.analyze("yes and yes"));
+        assertTrue(analyzer.analyze("true and yes"));
+        assertTrue(analyzer.analyze("yes and true"));
     }
     
 }
