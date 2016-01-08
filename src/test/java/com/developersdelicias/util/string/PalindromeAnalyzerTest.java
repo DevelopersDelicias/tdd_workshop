@@ -21,6 +21,11 @@ public class PalindromeAnalyzerTest {
 
     @Test
     public void isPalindromeWithSinglePalindromeMustReturnTrue() {
+        assertTrue(instance.isPalindrome("oso"));
+    }
+    
+    @Test
+    public void isPalindromeWithSinglePalindromeWithOneSpaceMustReturnTrue() {
         assertTrue(instance.isPalindrome("taco cat"));
     }
 
