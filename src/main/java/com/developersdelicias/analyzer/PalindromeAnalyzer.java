@@ -13,6 +13,11 @@ public class PalindromeAnalyzer {
             return false;
         }
         String tempPhrase = phrase.replaceAll("[\\s\\W]", "");
+        
+        if (tempPhrase.isEmpty()) {
+            return false;
+        }
+        
         String reversedPhrase = new StringBuilder(tempPhrase).reverse().toString();
         return tempPhrase.equalsIgnoreCase(reversedPhrase);
     }
