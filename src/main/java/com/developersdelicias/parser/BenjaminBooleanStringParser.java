@@ -1,5 +1,7 @@
 package com.developersdelicias.parser;
 
+import java.util.Locale;
+
 /**
  * Description of the class BenjaminBooleanStringParser
  *
@@ -15,7 +17,7 @@ public class BenjaminBooleanStringParser implements BooleanStringParser {
             return null;
         }
 
-        switch (string) {
+        switch (string.toLowerCase(Locale.US)) {
             case "yes":
             case "y":
             case "true":
