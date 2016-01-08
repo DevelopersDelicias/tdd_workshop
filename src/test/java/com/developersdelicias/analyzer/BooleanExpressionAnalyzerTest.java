@@ -18,6 +18,16 @@ public abstract class BooleanExpressionAnalyzerTest {
         assertTrue(analyzer.analyze("yes and yes"));
         assertTrue(analyzer.analyze("true and yes"));
         assertTrue(analyzer.analyze("yes and true"));
+        
+        assertTrue(analyzer.analyze("true or true"));
+        assertTrue(analyzer.analyze("yes or yes"));
+        assertTrue(analyzer.analyze("true or yes"));
+        assertTrue(analyzer.analyze("yes or true"));
+        
+        assertTrue(analyzer.analyze("false or true"));
+        assertTrue(analyzer.analyze("no or yes"));
+        assertTrue(analyzer.analyze("false or yes"));
+        assertTrue(analyzer.analyze("yes or false"));
     }
     
     @Test
