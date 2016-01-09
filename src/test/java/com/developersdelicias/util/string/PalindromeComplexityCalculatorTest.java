@@ -36,4 +36,14 @@ public class PalindromeComplexityCalculatorTest {
     public void calculateWithFourWordsPalindromeMustReturnMediumComplexity() {
         assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("No 'x' in Nixon"));
     }
+    
+    @Test 
+    public void calculateWithFiveWordsPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("Campus motto: Bottoms up Mac."));
+    }
+    
+    @Test 
+    public void calculateWithSixWordsPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("Marge lets Norah see Sharon’s telegram."));
+    }
 }
