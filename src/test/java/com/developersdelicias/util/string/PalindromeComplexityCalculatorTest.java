@@ -31,4 +31,9 @@ public class PalindromeComplexityCalculatorTest {
     public void calculateWithThreeWordsPalindromeMustReturnLowComplexity() {
         assertEquals(PalindromeComplexity.LOW, instance.calculate("Borrow or rob?"));
     }
+    
+    @Test 
+    public void calculateWithFourWordsPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("No 'x' in Nixon"));
+    }
 }

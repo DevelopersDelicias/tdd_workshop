@@ -9,7 +9,12 @@ public class PalindromeComplexityCalculatorImpl implements PalindromeComplexityC
 
     @Override
     public PalindromeComplexity calculate(String palindrome) throws NotValidPalindromeException {
-        return PalindromeComplexity.LOW;
+        if (palindrome.split(" ").length <= 3) {
+            return PalindromeComplexity.LOW;
+        } else {
+            return PalindromeComplexity.MEDIUM;
+        }
+
     }
 
 }
