@@ -68,4 +68,9 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {
         assertFalse(instance.isPalindrome("it is not a palindrome"));
     }
+    
+    @Test
+    public void isPalindromeWithBlankPhraseMustReturnFalse() {
+        assertFalse(instance.isPalindrome(""));
+    }
 }
