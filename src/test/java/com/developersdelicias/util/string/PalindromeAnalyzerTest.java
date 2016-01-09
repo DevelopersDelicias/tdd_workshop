@@ -53,6 +53,11 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithApostrophesMustReturnTrue() {
         assertTrue(instance.isPalindrome("No 'x' in Nixon"));
     }
+    
+    @Test
+    public void isPalindromeWithIntegerNumberPalindromeMustReturnTrue() {
+        assertTrue(instance.isPalindrome("123454321"));
+    }
 
     @Test
     public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {
