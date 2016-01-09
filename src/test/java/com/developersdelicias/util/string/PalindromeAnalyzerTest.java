@@ -58,6 +58,11 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithIntegerNumberPalindromeMustReturnTrue() {
         assertTrue(instance.isPalindrome("123454321"));
     }
+    
+    @Test
+    public void isPalindromeWithRealNumberPalindromeMustReturnTrue() {
+        assertTrue(instance.isPalindrome("1234.4321"));
+    }
 
     @Test
     public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {
