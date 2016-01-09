@@ -51,4 +51,12 @@ public class PalindromeComplexityCalculatorTest {
     public void calculateWithSevenWordsPalindromeMustReturnMediumComplexity() {
         assertEquals(PalindromeComplexity.HIGH, instance.calculate("Depardieu, go razz a rogue I draped."));
     }
+    
+    @Test 
+    public void calculateWithMoreThanSevenWordsPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.HIGH, instance.calculate("A Toyota! Race fast, safe car! A Toyota!"));
+        assertEquals(PalindromeComplexity.HIGH, instance.calculate("A new order began, a more Roman age bred Rowena."));
+        assertEquals(PalindromeComplexity.HIGH, instance.calculate("Degas, are we not drawn onward, no? In union, drawn onward to new eras aged?"));
+        assertEquals(PalindromeComplexity.HIGH, instance.calculate("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era."));
+    }
 }
