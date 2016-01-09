@@ -48,6 +48,11 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithInterrogationSignMustReturnTrue() {
         assertTrue(instance.isPalindrome("Was it a car or a cat I saw?"));
     }
+    
+    @Test
+    public void isPalindromeWithApostrophesMustReturnTrue() {
+        assertTrue(instance.isPalindrome("No 'x' in Nixon"));
+    }
 
     @Test
     public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {

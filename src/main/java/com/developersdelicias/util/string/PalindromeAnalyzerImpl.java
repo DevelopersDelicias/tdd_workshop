@@ -15,7 +15,8 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
     public boolean isPalindrome(String phrase) {
         logger.debug("Phrase is: " + phrase);
         String phraseWithoutSpaces = phrase.replaceAll(" ", "").toLowerCase()
-                .replaceAll("!", "").replaceAll(",", "").replaceAll("[?]", "");
+                .replaceAll("!", "").replaceAll(",", "").replaceAll("[?]", "")
+                .replaceAll("'", "");
         logger.debug("Removing spaces: " + phraseWithoutSpaces);
         final int lengthWithoutSpaces = phraseWithoutSpaces.length();
         String firstHalfPhrase = phraseWithoutSpaces.substring(0, lengthWithoutSpaces / 2);
