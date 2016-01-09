@@ -8,8 +8,18 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
 
     @Override
     public boolean isPalindrome(String phrase) {
+        String phraseWithoutSpaces = phrase.replaceAll(" ", "");
+        String firstHalfPhrase = phraseWithoutSpaces.substring(0, phraseWithoutSpaces.length() / 2);
+        String secondHalfPhrase = phraseWithoutSpaces.substring(phraseWithoutSpaces.length() / 2);
         
-        return "taco cat".equals(phrase) || "oso".equals(phrase);
+        boolean equals = true;
+        for (int i = 0; i< firstHalfPhrase.length(); i++) {
+            if(firstHalfPhrase.charAt(i) != secondHalfPhrase.charAt(secondHalfPhrase.length() - i - 1)) {
+                equals = false; 
+                break;
+            }
+        }
+        return equals;
     }
 
 }

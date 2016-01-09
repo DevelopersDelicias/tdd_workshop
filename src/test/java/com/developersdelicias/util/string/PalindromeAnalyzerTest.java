@@ -23,10 +23,15 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithSinglePalindromeMustReturnTrue() {
         assertTrue(instance.isPalindrome("oso"));
     }
-    
+
     @Test
     public void isPalindromeWithSinglePalindromeWithOneSpaceMustReturnTrue() {
         assertTrue(instance.isPalindrome("taco cat"));
+    }
+
+    @Test
+    public void isPalindromeWithUppercaseFirstLetterPalindromeMustReturnTrue() {
+        assertTrue(instance.isPalindrome("Race car"));
     }
 
     @Test
