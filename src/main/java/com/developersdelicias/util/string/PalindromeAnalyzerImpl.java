@@ -14,6 +14,11 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
     @Override
     public boolean isPalindrome(String phrase) {
         logger.debug("Phrase is: " + phrase);
+        
+        if (phrase == null) {
+            return false;
+        }
+        
         String phraseWithoutSpaces = phrase.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
         logger.debug("Removing spaces: " + phraseWithoutSpaces);
         

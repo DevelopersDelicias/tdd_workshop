@@ -73,4 +73,9 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithBlankPhraseMustReturnFalse() {
         assertFalse(instance.isPalindrome(""));
     }
+    
+    @Test
+    public void isPalindromeWithNullPhraseMustReturnFalse() {
+        assertFalse(instance.isPalindrome(null));
+    }
 }
