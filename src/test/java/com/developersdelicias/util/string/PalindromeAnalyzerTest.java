@@ -33,6 +33,16 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithUppercaseFirstLetterPalindromeMustReturnTrue() {
         assertTrue(instance.isPalindrome("Race car"));
     }
+    
+    @Test
+    public void isPalindromeWithOneCommaPalindromeMustReturnTrue() {
+        assertTrue(instance.isPalindrome("Amor, Roma"));
+    }
+    
+    @Test
+    public void isPalindromeWithAdmirationSignMustReturnTrue() {
+        assertTrue(instance.isPalindrome("A man, a plan, a canal, Panama!"));
+    }
 
     @Test
     public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {
