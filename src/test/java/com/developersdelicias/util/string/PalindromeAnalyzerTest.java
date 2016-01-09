@@ -43,6 +43,11 @@ public class PalindromeAnalyzerTest {
     public void isPalindromeWithAdmirationSignMustReturnTrue() {
         assertTrue(instance.isPalindrome("A man, a plan, a canal, Panama!"));
     }
+    
+    @Test
+    public void isPalindromeWithInterrogationSignMustReturnTrue() {
+        assertTrue(instance.isPalindrome("Was it a car or a cat I saw?"));
+    }
 
     @Test
     public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {
