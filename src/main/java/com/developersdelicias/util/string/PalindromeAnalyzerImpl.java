@@ -9,8 +9,9 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
     @Override
     public boolean isPalindrome(String phrase) {
         String phraseWithoutSpaces = phrase.replaceAll(" ", "").toLowerCase();
-        String firstHalfPhrase = phraseWithoutSpaces.substring(0, phraseWithoutSpaces.length() / 2);
-        String secondHalfPhrase = phraseWithoutSpaces.substring(phraseWithoutSpaces.length() / 2);
+        final int lengthWithoutSpaces = phraseWithoutSpaces.length();
+        String firstHalfPhrase = phraseWithoutSpaces.substring(0, lengthWithoutSpaces / 2);
+        String secondHalfPhrase = phraseWithoutSpaces.substring(lengthWithoutSpaces / 2);
         
         boolean equals = true;
         for (int i = 0; i< firstHalfPhrase.length(); i++) {
