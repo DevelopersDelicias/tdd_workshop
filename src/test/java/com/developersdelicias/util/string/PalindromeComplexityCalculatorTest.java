@@ -46,4 +46,9 @@ public class PalindromeComplexityCalculatorTest {
     public void calculateWithSixWordsPalindromeMustReturnMediumComplexity() {
         assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("Marge lets Norah see Sharon’s telegram."));
     }
+    
+    @Test 
+    public void calculateWithSevenWordsPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.HIGH, instance.calculate("Depardieu, go razz a rogue I draped."));
+    }
 }

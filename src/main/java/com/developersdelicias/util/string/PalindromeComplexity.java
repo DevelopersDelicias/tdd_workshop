@@ -6,5 +6,6 @@ package com.developersdelicias.util.string;
  */
 public enum PalindromeComplexity {
     LOW,
-    MEDIUM
+    MEDIUM,
+    HIGH
 }
