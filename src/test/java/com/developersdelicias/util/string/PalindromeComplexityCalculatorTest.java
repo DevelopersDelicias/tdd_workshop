@@ -113,5 +113,6 @@ public class PalindromeComplexityCalculatorTest {
     @Test
     public void calculateWithElevenOrMoreDigitsNumberPalindromeMustReturnHighComplexity() {
         assertEquals(PalindromeComplexity.HIGH, instance.calculate("12345654321"));
+        assertEquals(PalindromeComplexity.HIGH, instance.calculate("1234567890987654321"));
     }
 }
