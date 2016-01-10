@@ -117,12 +117,8 @@ public class PalindromeComplexityCalculatorTest {
         assertEquals(PalindromeComplexity.HIGH, instance.calculate("1234567890987654321"));
     }
     
-    @Test
+    @Test(expected = NotValidPalindromeException.class)
     public void calculateWithNotAPalindromeMustThrowNotValidPalindromeException() {
-        try {
-            instance.calculate("not a palindrome");
-            fail("It must throw an exception");
-        } catch (NotValidPalindromeException notValidPalindromeException) {
-        }
+        instance.calculate("not a palindrome");
     }
 }
