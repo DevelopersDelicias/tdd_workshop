@@ -89,4 +89,29 @@ public class PalindromeComplexityCalculatorTest {
     public void calculateWithSixDigitsNumberPalindromeMustReturnMediumComplexity() {
         assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("123321"));
     }
+    
+    @Test
+    public void calculateWithSevenDigitsNumberPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("1234321"));
+    }
+    
+    @Test
+    public void calculateWithEightDigitsNumberPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("12344321"));
+    }
+    
+    @Test
+    public void calculateWithNineDigitsNumberPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("123454321"));
+    }
+    
+    @Test
+    public void calculateWithTenDigitsNumberPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("1234554321"));
+    }
+    
+    @Test
+    public void calculateWithElevenOrMoreDigitsNumberPalindromeMustReturnHighComplexity() {
+        assertEquals(PalindromeComplexity.HIGH, instance.calculate("12345654321"));
+    }
 }

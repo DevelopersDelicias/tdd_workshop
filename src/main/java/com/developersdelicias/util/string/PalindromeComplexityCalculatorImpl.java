@@ -10,22 +10,25 @@ import org.apache.log4j.Logger;
 public class PalindromeComplexityCalculatorImpl implements PalindromeComplexityCalculator {
 
     private static final Logger logger = Logger.getLogger(PalindromeComplexityCalculatorImpl.class);
+
     @Override
     public PalindromeComplexity calculate(String palindrome) throws NotValidPalindromeException {
-        
+
         try {
-            Integer value = Integer.parseInt(palindrome);
+            Long value = Long.parseLong(palindrome);
             String stringValue = value.toString();
-            
+
             if (stringValue.length() <= 5) {
                 return PalindromeComplexity.LOW;
-            } else {
+            } else if (stringValue.length() <= 10) {
                 return PalindromeComplexity.MEDIUM;
+            } else {
+                return PalindromeComplexity.HIGH;
             }
-        } catch (NumberFormatException nfe){
+        } catch (NumberFormatException nfe) {
             logger.info("Skipping this error: " + nfe);
         }
-        
+
         final int wordCount = palindrome.split(" ").length;
         if (wordCount <= 3) {
             return PalindromeComplexity.LOW;
