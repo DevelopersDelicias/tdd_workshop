@@ -84,4 +84,9 @@ public class PalindromeComplexityCalculatorTest {
     public void calculateWithFiveDigitsNumberPalindromeMustReturnLowComplexity() {
         assertEquals(PalindromeComplexity.LOW, instance.calculate("12321"));
     }
+    
+    @Test
+    public void calculateWithSixDigitsNumberPalindromeMustReturnMediumComplexity() {
+        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("123321"));
+    }
 }
