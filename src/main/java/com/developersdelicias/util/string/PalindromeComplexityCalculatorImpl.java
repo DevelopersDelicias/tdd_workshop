@@ -13,7 +13,13 @@ public class PalindromeComplexityCalculatorImpl implements PalindromeComplexityC
 
     @Override
     public PalindromeComplexity calculate(String palindrome) throws NotValidPalindromeException {
+        PalindromeAnalyzer analyzer = new PalindromeAnalyzerImpl();
 
+        if (!analyzer.isPalindrome(palindrome)) {
+            throw new NotValidPalindromeException(
+                    String.format("\"%s\" is not a palindrome. "
+                            + "Complexity cannot be calculated.", palindrome));
+        }
         try {
             Long value = Long.parseLong(palindrome);
             String stringValue = value.toString();
