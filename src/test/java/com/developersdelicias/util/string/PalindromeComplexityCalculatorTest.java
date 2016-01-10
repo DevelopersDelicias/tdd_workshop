@@ -59,4 +59,29 @@ public class PalindromeComplexityCalculatorTest {
         assertEquals(PalindromeComplexity.HIGH, instance.calculate("Degas, are we not drawn onward, no? In union, drawn onward to new eras aged?"));
         assertEquals(PalindromeComplexity.HIGH, instance.calculate("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era."));
     }
+    
+    @Test
+    public void calculateWithOneDigitNumberPalindromeMustReturnLowComplexity() {
+        assertEquals(PalindromeComplexity.LOW, instance.calculate("1"));
+    }
+    
+    @Test
+    public void calculateWithTwoDigitsNumberPalindromeMustReturnLowComplexity() {
+        assertEquals(PalindromeComplexity.LOW, instance.calculate("44"));
+    }
+    
+    @Test
+    public void calculateWithThreeDigitsNumberPalindromeMustReturnLowComplexity() {
+        assertEquals(PalindromeComplexity.LOW, instance.calculate("121"));
+    }
+    
+    @Test
+    public void calculateWithFourDigitsNumberPalindromeMustReturnLowComplexity() {
+        assertEquals(PalindromeComplexity.LOW, instance.calculate("1221"));
+    }
+    
+    @Test
+    public void calculateWithFiveDigitsNumberPalindromeMustReturnLowComplexity() {
+        assertEquals(PalindromeComplexity.LOW, instance.calculate("12321"));
+    }
 }
