@@ -15,7 +15,7 @@ public class PalindromeComplexityCalculatorTest {
     
     @Before
     public void setUp() {
-        instance = new PalindromeComplexityCalculatorImpl();
+        instance = new PalindromeComplexityCalculatorImpl(new PalindromeAnalyzerImpl());
     }
     
     @Test 

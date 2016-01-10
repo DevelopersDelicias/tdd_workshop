@@ -10,11 +10,14 @@ import org.apache.log4j.Logger;
 public class PalindromeComplexityCalculatorImpl implements PalindromeComplexityCalculator {
 
     private static final Logger logger = Logger.getLogger(PalindromeComplexityCalculatorImpl.class);
+    private PalindromeAnalyzer analyzer;
+
+    public PalindromeComplexityCalculatorImpl(PalindromeAnalyzer analyzer) {
+        this.analyzer = analyzer;
+    }
 
     @Override
     public PalindromeComplexity calculate(String palindrome) throws NotValidPalindromeException {
-        PalindromeAnalyzer analyzer = new PalindromeAnalyzerImpl();
-
         if (!analyzer.isPalindrome(palindrome)) {
             throw new NotValidPalindromeException(
                     String.format("\"%s\" is not a palindrome. "
