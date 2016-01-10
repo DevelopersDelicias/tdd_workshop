@@ -23,7 +23,7 @@ public class PalindromeComplexityCalculatorImpl implements PalindromeComplexityC
                 return PalindromeComplexity.MEDIUM;
             }
         } catch (NumberFormatException nfe){
-            logger.info("Skipping this error", nfe);
+            logger.info("Skipping this error: " + nfe);
         }
         
         final int wordCount = palindrome.split(" ").length;
