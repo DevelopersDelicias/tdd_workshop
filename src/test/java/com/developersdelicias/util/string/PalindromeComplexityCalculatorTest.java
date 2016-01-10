@@ -1,6 +1,7 @@
 package com.developersdelicias.util.string;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -114,5 +115,14 @@ public class PalindromeComplexityCalculatorTest {
     public void calculateWithElevenOrMoreDigitsNumberPalindromeMustReturnHighComplexity() {
         assertEquals(PalindromeComplexity.HIGH, instance.calculate("12345654321"));
         assertEquals(PalindromeComplexity.HIGH, instance.calculate("1234567890987654321"));
+    }
+    
+    @Test
+    public void calculateWithNotAPalindromeMustThrowNotValidPalindromeException() {
+        try {
+            instance.calculate("not a palindrome");
+            fail("It must throw an exception");
+        } catch (NotValidPalindromeException notValidPalindromeException) {
+        }
     }
 }
