@@ -13,20 +13,21 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
 
     @Override
     public boolean isPalindrome(String phrase) {
-        logger.debug("Phrase is: " + phrase);
-        
         if (phrase == null) {
             return false;
         }
-        
-        String phraseWithoutSpaces = phrase.replaceAll("[^\\p{L}\\p{Nd}]+", "").toLowerCase();
-        phraseWithoutSpaces = new SpanishTransliterator().transliterate(phraseWithoutSpaces);
-        logger.debug("Removing spaces: " + phraseWithoutSpaces);
-        
-        if (phraseWithoutSpaces.isEmpty()) {
+
+        String normalizedPalindrome = normalize(phrase);
+
+        if (normalizedPalindrome.isEmpty()) {
             return false;
         }
-        return phraseWithoutSpaces.equals(new StringBuilder(phraseWithoutSpaces).reverse().toString());
+        return normalizedPalindrome.equalsIgnoreCase(new StringBuilder(normalizedPalindrome).reverse().toString());
+    }
+
+    protected String normalize(String phrase) {
+        return new SpanishTransliterator().transliterate(
+                phrase.replaceAll("[^\\p{L}\\p{Nd}]+", ""));
     }
 
 }
