@@ -12,13 +12,21 @@ public class PalindromeTestResourcesUtil {
 
     private static final List<PalindromeTestResource> realPalindromesList;
     private static final List<PalindromeTestResource> invalidPalindromesList;
+    
+    private static final List<PalindromeTestResource> lowComplexityPalindromesList;
 
     static {
-        realPalindromesList = new ArrayList<>();
-        realPalindromesList.add(new PalindromeTestResource("oso",
+        lowComplexityPalindromesList = new ArrayList<>();
+        lowComplexityPalindromesList.add(new PalindromeTestResource("oso",
                 "Single palindrome with one word and all letters in lowercase"));
-        realPalindromesList.add(new PalindromeTestResource("taco cat",
+        lowComplexityPalindromesList.add(new PalindromeTestResource("taco cat",
                 "Single palindrome with two words and all letters in lowercase"));
+        lowComplexityPalindromesList.add(new PalindromeTestResource("Borrow or rob?",
+                "Single palindrome with three words using uppercase and lowercase and question mark"));
+        
+        realPalindromesList = new ArrayList<>();
+        realPalindromesList.addAll(lowComplexityPalindromesList);
+        
         realPalindromesList.add(new PalindromeTestResource("Race car",
                 "Single palindrome with two words using capital first letter"));
         realPalindromesList.add(new PalindromeTestResource("Amor, Roma",
@@ -46,5 +54,9 @@ public class PalindromeTestResourcesUtil {
 
     public static List<PalindromeTestResource> getInvalidPalindromes() {
         return invalidPalindromesList;
+    }
+    
+    public static List<PalindromeTestResource> getLowComplexityPalindromes() {
+        return lowComplexityPalindromesList;
     }
 }
