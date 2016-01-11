@@ -11,6 +11,8 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
 
     private static final Logger logger = Logger.getLogger(PalindromeAnalyzerImpl.class);
 
+    private final SpanishTransliterator transliterator = new SpanishTransliterator();
+
     @Override
     public boolean isPalindrome(String phrase) {
         if (phrase == null) {
@@ -22,11 +24,12 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
         if (normalizedPalindrome.isEmpty()) {
             return false;
         }
-        return normalizedPalindrome.equalsIgnoreCase(new StringBuilder(normalizedPalindrome).reverse().toString());
+        return normalizedPalindrome.equalsIgnoreCase(
+                new StringBuilder(normalizedPalindrome).reverse().toString());
     }
 
     protected String normalize(String phrase) {
-        return new SpanishTransliterator().transliterate(
+        return transliterator.transliterate(
                 phrase.replaceAll("[^\\p{L}\\p{Nd}]+", ""));
     }
 
