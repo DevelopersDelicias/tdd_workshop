@@ -1,15 +1,19 @@
 package com.developersdelicias.util.string;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
  * Class to test a PalindromeAnalyzer implementation
  *
  * @author Benjamin Cisneros <cisnerosbarraza@gmail.com>
  */
+@RunWith(JUnitParamsRunner.class)
 public class PalindromeAnalyzerTest {
 
     PalindromeAnalyzer instance;
@@ -20,62 +24,14 @@ public class PalindromeAnalyzerTest {
     }
 
     @Test
-    public void isPalindromeWithSinglePalindromeMustReturnTrue() {
-        assertTrue(instance.isPalindrome("oso"));
-    }
-
-    @Test
-    public void isPalindromeWithSinglePalindromeWithOneSpaceMustReturnTrue() {
-        assertTrue(instance.isPalindrome("taco cat"));
-    }
-
-    @Test
-    public void isPalindromeWithUppercaseFirstLetterPalindromeMustReturnTrue() {
-        assertTrue(instance.isPalindrome("Race car"));
+    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getRealPalindromes")
+    public void isPalindromeWithRealPalindromeMustReturnTrue(PalindromeTestResource testCase) {
+        assertTrue(testCase.getTestDescription() + " must return true.", instance.isPalindrome(testCase.getPhrase()));
     }
     
     @Test
-    public void isPalindromeWithOneCommaPalindromeMustReturnTrue() {
-        assertTrue(instance.isPalindrome("Amor, Roma"));
-    }
-    
-    @Test
-    public void isPalindromeWithAdmirationSignMustReturnTrue() {
-        assertTrue(instance.isPalindrome("A man, a plan, a canal, Panama!"));
-    }
-    
-    @Test
-    public void isPalindromeWithInterrogationSignMustReturnTrue() {
-        assertTrue(instance.isPalindrome("Was it a car or a cat I saw?"));
-    }
-    
-    @Test
-    public void isPalindromeWithApostrophesMustReturnTrue() {
-        assertTrue(instance.isPalindrome("No 'x' in Nixon"));
-    }
-    
-    @Test
-    public void isPalindromeWithIntegerNumberPalindromeMustReturnTrue() {
-        assertTrue(instance.isPalindrome("123454321"));
-    }
-    
-    @Test
-    public void isPalindromeWithRealNumberPalindromeMustReturnTrue() {
-        assertTrue(instance.isPalindrome("1234.4321"));
-    }
-
-    @Test
-    public void isPalindromeWithNoPalindromePhraseMustReturnFalse() {
-        assertFalse(instance.isPalindrome("it is not a palindrome"));
-    }
-    
-    @Test
-    public void isPalindromeWithBlankPhraseMustReturnFalse() {
-        assertFalse(instance.isPalindrome(""));
-    }
-    
-    @Test
-    public void isPalindromeWithNullPhraseMustReturnFalse() {
-        assertFalse(instance.isPalindrome(null));
+    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getInvalidPalindromes")
+    public void isPalindromeWithInvalidPalindromeMustReturnFalse(PalindromeTestResource testCase) {
+        assertFalse(testCase.getTestDescription() + " must return false.", instance.isPalindrome(testCase.getPhrase()));
     }
 }
