@@ -24,89 +24,28 @@ public class PalindromeComplexityCalculatorTest {
 
     @Test
     @Parameters(source = PalindromeTestResourcesUtil.class, method = "getLowComplexityPalindromes")
-    public void calculateWithBetweenOneAndThreeWordsPalindromesMustReturnLowComplexity(PalindromeTestResource testCase) {
+    public void calculateWithOneToThreeWordsOrOneToFiveDigitsNumberPalindromesMustReturnLowComplexity(PalindromeTestResource testCase) {
         assertEquals(testCase.getTestDescription() + " must return low complexity.",
                 PalindromeComplexity.LOW, instance.calculate(testCase.getPhrase()));
     }
     
     @Test
     @Parameters(source = PalindromeTestResourcesUtil.class, method = "getMediumComplexityPalindromes")
-    public void calculateWithBetweenFourAndSixWordsPalindromesMustReturnMediumComplexity(PalindromeTestResource testCase) {
+    public void calculateWithFourToSixWordsOrSixToTenDigitsNumberPalindromesMustReturnMediumComplexity(PalindromeTestResource testCase) {
         assertEquals(testCase.getTestDescription() + " must return medium complexity.",
                 PalindromeComplexity.MEDIUM, instance.calculate(testCase.getPhrase()));
     }
-
+    
     @Test
-    public void calculateWithSevenWordsPalindromeMustReturnHighComplexity() {
-        assertEquals(PalindromeComplexity.HIGH, instance.calculate("Depardieu, go razz a rogue I draped."));
-    }
-
-    @Test
-    public void calculateWithMoreThanSevenWordsPalindromeMustReturnHighComplexity() {
-        assertEquals(PalindromeComplexity.HIGH, instance.calculate("A Toyota! Race fast, safe car! A Toyota!"));
-        assertEquals(PalindromeComplexity.HIGH, instance.calculate("A new order began, a more Roman age bred Rowena."));
-        assertEquals(PalindromeComplexity.HIGH, instance.calculate("Degas, are we not drawn onward, no? In union, drawn onward to new eras aged?"));
-        assertEquals(PalindromeComplexity.HIGH, instance.calculate("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era."));
-    }
-
-    @Test
-    public void calculateWithOneDigitNumberPalindromeMustReturnLowComplexity() {
-        assertEquals(PalindromeComplexity.LOW, instance.calculate("1"));
-    }
-
-    @Test
-    public void calculateWithTwoDigitsNumberPalindromeMustReturnLowComplexity() {
-        assertEquals(PalindromeComplexity.LOW, instance.calculate("44"));
-    }
-
-    @Test
-    public void calculateWithThreeDigitsNumberPalindromeMustReturnLowComplexity() {
-        assertEquals(PalindromeComplexity.LOW, instance.calculate("121"));
-    }
-
-    @Test
-    public void calculateWithFourDigitsNumberPalindromeMustReturnLowComplexity() {
-        assertEquals(PalindromeComplexity.LOW, instance.calculate("1221"));
-    }
-
-    @Test
-    public void calculateWithFiveDigitsNumberPalindromeMustReturnLowComplexity() {
-        assertEquals(PalindromeComplexity.LOW, instance.calculate("12321"));
-    }
-
-    @Test
-    public void calculateWithSixDigitsNumberPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("123321"));
-    }
-
-    @Test
-    public void calculateWithSevenDigitsNumberPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("1234321"));
-    }
-
-    @Test
-    public void calculateWithEightDigitsNumberPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("12344321"));
-    }
-
-    @Test
-    public void calculateWithNineDigitsNumberPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("123454321"));
-    }
-
-    @Test
-    public void calculateWithTenDigitsNumberPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("1234554321"));
-    }
-
-    @Test
-    public void calculateWithElevenOrMoreDigitsNumberPalindromeMustReturnHighComplexity() {
-        assertEquals(PalindromeComplexity.HIGH, instance.calculate("12345654321"));
-        assertEquals(PalindromeComplexity.HIGH, instance.calculate("1234567890987654321"));
+    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getHighComplexityPalindromes")
+    public void calculateWithSevenOrMoreWordsPalindromeMustReturnHighComplexity(PalindromeTestResource testCase) {
+        assertEquals(testCase.getTestDescription() + " must return high complexity.",
+                PalindromeComplexity.HIGH, instance.calculate(testCase.getPhrase()));
     }
 
     @Test(expected = NotValidPalindromeException.class)
-    public void calculateWithNotAPalindromeMustThrowNotValidPalindromeException() {
-        instance.calculate("not a palindrome");
+    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getInvalidPalindromes")
+    public void calculateWithNotAPalindromeMustThrowNotValidPalindromeException(PalindromeTestResource testCase) {
+        instance.calculate(testCase.getPhrase());
     }
 }
