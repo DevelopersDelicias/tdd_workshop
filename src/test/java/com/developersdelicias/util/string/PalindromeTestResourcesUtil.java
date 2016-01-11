@@ -65,6 +65,8 @@ public class PalindromeTestResourcesUtil {
                 "A palindrome with thirteen words that use commas and questions marks"));
         highComplexityPalindromesList.add(new PalindromeTestResource("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era.",
                 "A very large palindrome with many non-alphanumeric characters"));
+        highComplexityPalindromesList.add(new PalindromeTestResource("Allí por la tropa portado, traído a ese paraje de maniobras, una tipa como capitán usar boina me dejara, pese a odiar toda tropa por tal ropilla.",
+                "A very large spanish palindrome with many non-alphanumeric characters"));
         highComplexityPalindromesList.add(new PalindromeTestResource("12345654321",
                 "A palindrome with ten integer numbers"));
         highComplexityPalindromesList.add(new PalindromeTestResource("1234567890987654321",
