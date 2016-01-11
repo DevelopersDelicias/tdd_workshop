@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 
 /**
  * Test class for PalindromeComplexityCalculator
@@ -19,7 +20,15 @@ public class PalindromeComplexityCalculatorTest {
 
     @Before
     public void setUp() {
-        instance = new PalindromeComplexityCalculatorImpl(new PalindromeAnalyzerImpl());
+        PalindromeAnalyzer mockAnalyzer = Mockito.mock(PalindromeAnalyzer.class);
+        PalindromeTestResourcesUtil.getRealPalindromes().stream().forEach((resource) -> {
+            Mockito.when(mockAnalyzer.isPalindrome(resource.getPhrase())).thenReturn(Boolean.TRUE);
+        });
+        
+        PalindromeTestResourcesUtil.getInvalidPalindromes().stream().forEach((resource) -> {
+            Mockito.when(mockAnalyzer.isPalindrome(resource.getPhrase())).thenReturn(Boolean.FALSE);
+        });
+        instance = new PalindromeComplexityCalculatorImpl(mockAnalyzer);
     }
 
     @Test
