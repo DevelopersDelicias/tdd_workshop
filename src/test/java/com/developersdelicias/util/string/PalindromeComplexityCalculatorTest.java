@@ -28,20 +28,12 @@ public class PalindromeComplexityCalculatorTest {
         assertEquals(testCase.getTestDescription() + " must return low complexity.",
                 PalindromeComplexity.LOW, instance.calculate(testCase.getPhrase()));
     }
-
+    
     @Test
-    public void calculateWithFourWordsPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("No 'x' in Nixon"));
-    }
-
-    @Test
-    public void calculateWithFiveWordsPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("Campus motto: Bottoms up Mac."));
-    }
-
-    @Test
-    public void calculateWithSixWordsPalindromeMustReturnMediumComplexity() {
-        assertEquals(PalindromeComplexity.MEDIUM, instance.calculate("Marge lets Norah see Sharon’s telegram."));
+    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getMediumComplexityPalindromes")
+    public void calculateWithBetweenFourAndSixWordsPalindromesMustReturnMediumComplexity(PalindromeTestResource testCase) {
+        assertEquals(testCase.getTestDescription() + " must return medium complexity.",
+                PalindromeComplexity.MEDIUM, instance.calculate(testCase.getPhrase()));
     }
 
     @Test

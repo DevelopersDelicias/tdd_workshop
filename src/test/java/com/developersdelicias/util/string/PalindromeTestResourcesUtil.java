@@ -14,6 +14,7 @@ public class PalindromeTestResourcesUtil {
     private static final List<PalindromeTestResource> invalidPalindromesList;
     
     private static final List<PalindromeTestResource> lowComplexityPalindromesList;
+    private static final List<PalindromeTestResource> mediumComplexityPalindromesList;
 
     static {
         lowComplexityPalindromesList = new ArrayList<>();
@@ -24,8 +25,17 @@ public class PalindromeTestResourcesUtil {
         lowComplexityPalindromesList.add(new PalindromeTestResource("Borrow or rob?",
                 "Single palindrome with three words using uppercase and lowercase and question mark"));
         
+        mediumComplexityPalindromesList = new ArrayList<>();
+        mediumComplexityPalindromesList.add(new PalindromeTestResource("No 'x' in Nixon",
+                "A palindrome with four words that has apostrophes"));
+        mediumComplexityPalindromesList.add(new PalindromeTestResource("Campus motto: Bottoms up Mac.",
+                "A palindrome with five words that has colon"));
+        mediumComplexityPalindromesList.add(new PalindromeTestResource("Marge lets Norah see Sharon’s telegram.",
+                "A palindrome with six words"));
+        
         realPalindromesList = new ArrayList<>();
         realPalindromesList.addAll(lowComplexityPalindromesList);
+        realPalindromesList.addAll(mediumComplexityPalindromesList);
         
         realPalindromesList.add(new PalindromeTestResource("Race car",
                 "Single palindrome with two words using capital first letter"));
@@ -35,8 +45,7 @@ public class PalindromeTestResourcesUtil {
                 "A palindrome that use commas and ends with a exclamation mark"));
         realPalindromesList.add(new PalindromeTestResource("Was it a car or a cat I saw?",
                 "A palindrome that ends with a question mark"));
-        realPalindromesList.add(new PalindromeTestResource("No 'x' in Nixon",
-                "A palindrome that has with apostrophes"));
+        
         realPalindromesList.add(new PalindromeTestResource("123454321",
                 "Integer number palindrome"));
         realPalindromesList.add(new PalindromeTestResource("1234.4321",
@@ -58,5 +67,9 @@ public class PalindromeTestResourcesUtil {
     
     public static List<PalindromeTestResource> getLowComplexityPalindromes() {
         return lowComplexityPalindromesList;
+    }
+    
+    public static List<PalindromeTestResource> getMediumComplexityPalindromes() {
+        return mediumComplexityPalindromesList;
     }
 }
