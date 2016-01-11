@@ -19,7 +19,8 @@ public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
             return false;
         }
         
-        String phraseWithoutSpaces = phrase.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        String phraseWithoutSpaces = phrase.replaceAll("[^\\p{L}\\p{Nd}]+", "").toLowerCase();
+        phraseWithoutSpaces = new SpanishTransliterator().transliterate(phraseWithoutSpaces);
         logger.debug("Removing spaces: " + phraseWithoutSpaces);
         
         if (phraseWithoutSpaces.isEmpty()) {
