@@ -7,6 +7,11 @@ package com.developersdelicias.util.string;
  */
 public class NotValidPalindromeException extends RuntimeException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7572540799167010553L;
+
 	public NotValidPalindromeException(String message) {
 		super(message);
 	}

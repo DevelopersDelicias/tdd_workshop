@@ -1,15 +1,11 @@
 package com.developersdelicias.util.string;
 
-import org.apache.log4j.Logger;
-
 /**
  * Implementation class for PalindromeAnalyzer
  *
  * @author Benjamin Cisneros <benjamin.cisneros@softtek.com>
  */
 public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
-
-	private static final Logger logger = Logger.getLogger(PalindromeAnalyzerImpl.class);
 
 	private final SpanishTransliterator transliterator = new SpanishTransliterator();
 
