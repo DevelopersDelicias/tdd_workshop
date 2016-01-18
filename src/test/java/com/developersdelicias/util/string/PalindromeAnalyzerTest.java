@@ -16,22 +16,22 @@ import org.junit.runner.RunWith;
 @RunWith(JUnitParamsRunner.class)
 public class PalindromeAnalyzerTest {
 
-    PalindromeAnalyzer instance;
+	PalindromeAnalyzer instance;
 
-    @Before
-    public void setUp() {
-        instance = new PalindromeAnalyzerImpl();
-    }
+	@Before
+	public void setUp() {
+		instance = new PalindromeAnalyzerImpl();
+	}
 
-    @Test
-    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getRealPalindromes")
-    public void isPalindromeWithRealPalindromeMustReturnTrue(PalindromeTestResource testCase) {
-        assertTrue(testCase.getTestDescription() + " must return true.", instance.isPalindrome(testCase.getPhrase()));
-    }
-    
-    @Test
-    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getInvalidPalindromes")
-    public void isPalindromeWithInvalidPalindromeMustReturnFalse(PalindromeTestResource testCase) {
-        assertFalse(testCase.getTestDescription() + " must return false.", instance.isPalindrome(testCase.getPhrase()));
-    }
+	@Test
+	@Parameters(source = PalindromeTestResourcesUtil.class, method = "getRealPalindromes")
+	public void isPalindromeWithRealPalindromeMustReturnTrue(PalindromeTestResource testCase) {
+		assertTrue(testCase.getTestDescription() + " must return true.", instance.isPalindrome(testCase.getPhrase()));
+	}
+
+	@Test
+	@Parameters(source = PalindromeTestResourcesUtil.class, method = "getInvalidPalindromes")
+	public void isPalindromeWithInvalidPalindromeMustReturnFalse(PalindromeTestResource testCase) {
+		assertFalse(testCase.getTestDescription() + " must return false.", instance.isPalindrome(testCase.getPhrase()));
+	}
 }

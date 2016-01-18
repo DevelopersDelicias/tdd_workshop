@@ -7,5 +7,5 @@ package com.developersdelicias.util.string;
  */
 public interface PalindromeAnalyzer {
 
-    public boolean isPalindrome(String phrase);
+	public boolean isPalindrome(String phrase);
 }

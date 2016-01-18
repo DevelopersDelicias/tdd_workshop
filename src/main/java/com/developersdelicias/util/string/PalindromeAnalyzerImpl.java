@@ -9,28 +9,26 @@ import org.apache.log4j.Logger;
  */
 public class PalindromeAnalyzerImpl implements PalindromeAnalyzer {
 
-    private static final Logger logger = Logger.getLogger(PalindromeAnalyzerImpl.class);
+	private static final Logger logger = Logger.getLogger(PalindromeAnalyzerImpl.class);
 
-    private final SpanishTransliterator transliterator = new SpanishTransliterator();
+	private final SpanishTransliterator transliterator = new SpanishTransliterator();
 
-    @Override
-    public boolean isPalindrome(String phrase) {
-        if (phrase == null) {
-            return false;
-        }
+	@Override
+	public boolean isPalindrome(String phrase) {
+		if (phrase == null) {
+			return false;
+		}
 
-        String normalizedPalindrome = normalize(phrase);
+		String normalizedPalindrome = normalize(phrase);
 
-        if (normalizedPalindrome.isEmpty()) {
-            return false;
-        }
-        return normalizedPalindrome.equalsIgnoreCase(
-                new StringBuilder(normalizedPalindrome).reverse().toString());
-    }
+		if (normalizedPalindrome.isEmpty()) {
+			return false;
+		}
+		return normalizedPalindrome.equalsIgnoreCase(new StringBuilder(normalizedPalindrome).reverse().toString());
+	}
 
-    protected String normalize(String phrase) {
-        return transliterator.transliterate(
-                phrase.replaceAll("[^\\p{L}\\p{Nd}]+", ""));
-    }
+	protected String normalize(String phrase) {
+		return transliterator.transliterate(phrase.replaceAll("[^\\p{L}\\p{Nd}]+", ""));
+	}
 
 }

@@ -16,45 +16,47 @@ import org.mockito.Mockito;
 @RunWith(JUnitParamsRunner.class)
 public class PalindromeComplexityCalculatorTest {
 
-    PalindromeComplexityCalculator instance;
+	PalindromeComplexityCalculator instance;
 
-    @Before
-    public void setUp() {
-        PalindromeAnalyzer mockAnalyzer = Mockito.mock(PalindromeAnalyzer.class);
-        PalindromeTestResourcesUtil.getRealPalindromes().stream().forEach((resource) -> {
-            Mockito.when(mockAnalyzer.isPalindrome(resource.getPhrase())).thenReturn(Boolean.TRUE);
-        });
-        
-        PalindromeTestResourcesUtil.getInvalidPalindromes().stream().forEach((resource) -> {
-            Mockito.when(mockAnalyzer.isPalindrome(resource.getPhrase())).thenReturn(Boolean.FALSE);
-        });
-        instance = new PalindromeComplexityCalculatorImpl(mockAnalyzer);
-    }
+	@Before
+	public void setUp() {
+		PalindromeAnalyzer mockAnalyzer = Mockito.mock(PalindromeAnalyzer.class);
+		PalindromeTestResourcesUtil.getRealPalindromes().stream().forEach((resource) -> {
+			Mockito.when(mockAnalyzer.isPalindrome(resource.getPhrase())).thenReturn(Boolean.TRUE);
+		});
 
-    @Test
-    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getLowComplexityPalindromes")
-    public void calculateWithOneToThreeWordsOrOneToFiveDigitsNumberPalindromesMustReturnLowComplexity(PalindromeTestResource testCase) {
-        assertEquals(testCase.getTestDescription() + " must return low complexity.",
-                PalindromeComplexity.LOW, instance.calculate(testCase.getPhrase()));
-    }
-    
-    @Test
-    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getMediumComplexityPalindromes")
-    public void calculateWithFourToSixWordsOrSixToTenDigitsNumberPalindromesMustReturnMediumComplexity(PalindromeTestResource testCase) {
-        assertEquals(testCase.getTestDescription() + " must return medium complexity.",
-                PalindromeComplexity.MEDIUM, instance.calculate(testCase.getPhrase()));
-    }
-    
-    @Test
-    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getHighComplexityPalindromes")
-    public void calculateWithSevenOrMoreWordsPalindromeMustReturnHighComplexity(PalindromeTestResource testCase) {
-        assertEquals(testCase.getTestDescription() + " must return high complexity.",
-                PalindromeComplexity.HIGH, instance.calculate(testCase.getPhrase()));
-    }
+		PalindromeTestResourcesUtil.getInvalidPalindromes().stream().forEach((resource) -> {
+			Mockito.when(mockAnalyzer.isPalindrome(resource.getPhrase())).thenReturn(Boolean.FALSE);
+		});
+		instance = new PalindromeComplexityCalculatorImpl(mockAnalyzer);
+	}
 
-    @Test(expected = NotValidPalindromeException.class)
-    @Parameters(source = PalindromeTestResourcesUtil.class, method = "getInvalidPalindromes")
-    public void calculateWithNotAPalindromeMustThrowNotValidPalindromeException(PalindromeTestResource testCase) {
-        instance.calculate(testCase.getPhrase());
-    }
+	@Test
+	@Parameters(source = PalindromeTestResourcesUtil.class, method = "getLowComplexityPalindromes")
+	public void calculateWithOneToThreeWordsOrOneToFiveDigitsNumberPalindromesMustReturnLowComplexity(
+			PalindromeTestResource testCase) {
+		assertEquals(testCase.getTestDescription() + " must return low complexity.", PalindromeComplexity.LOW,
+				instance.calculate(testCase.getPhrase()));
+	}
+
+	@Test
+	@Parameters(source = PalindromeTestResourcesUtil.class, method = "getMediumComplexityPalindromes")
+	public void calculateWithFourToSixWordsOrSixToTenDigitsNumberPalindromesMustReturnMediumComplexity(
+			PalindromeTestResource testCase) {
+		assertEquals(testCase.getTestDescription() + " must return medium complexity.", PalindromeComplexity.MEDIUM,
+				instance.calculate(testCase.getPhrase()));
+	}
+
+	@Test
+	@Parameters(source = PalindromeTestResourcesUtil.class, method = "getHighComplexityPalindromes")
+	public void calculateWithSevenOrMoreWordsPalindromeMustReturnHighComplexity(PalindromeTestResource testCase) {
+		assertEquals(testCase.getTestDescription() + " must return high complexity.", PalindromeComplexity.HIGH,
+				instance.calculate(testCase.getPhrase()));
+	}
+
+	@Test(expected = NotValidPalindromeException.class)
+	@Parameters(source = PalindromeTestResourcesUtil.class, method = "getInvalidPalindromes")
+	public void calculateWithNotAPalindromeMustThrowNotValidPalindromeException(PalindromeTestResource testCase) {
+		instance.calculate(testCase.getPhrase());
+	}
 }

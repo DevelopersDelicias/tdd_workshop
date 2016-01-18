@@ -7,25 +7,25 @@ package com.developersdelicias.util.string;
  */
 public class PalindromeTestResource {
 
-    private final String phrase;
-    private final String testDescription;
+	private final String phrase;
+	private final String testDescription;
 
-    public PalindromeTestResource(String phrase, String testDescription) {
-        this.phrase = phrase;
-        this.testDescription = testDescription;
-    }
+	public PalindromeTestResource(String phrase, String testDescription) {
+		this.phrase = phrase;
+		this.testDescription = testDescription;
+	}
 
-    public String getPhrase() {
-        return phrase;
-    }
+	public String getPhrase() {
+		return phrase;
+	}
 
-    public String getTestDescription() {
-        return testDescription;
-    }
+	public String getTestDescription() {
+		return testDescription;
+	}
 
-    @Override
-    public String toString() {
-        return "PalindromeTestResource{" + "phrase=" + phrase + ", testDescription=" + testDescription + '}';
-    }
+	@Override
+	public String toString() {
+		return "PalindromeTestResource{" + "phrase=" + phrase + ", testDescription=" + testDescription + '}';
+	}
 
 }
