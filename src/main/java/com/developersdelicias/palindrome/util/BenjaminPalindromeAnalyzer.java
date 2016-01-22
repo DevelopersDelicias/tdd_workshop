@@ -4,7 +4,7 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 
 	@Override
 	public boolean isPalindrome(String phrase) {
-		return false;
+		return true;
 	}
 
 }
