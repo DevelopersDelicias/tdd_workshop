@@ -65,4 +65,9 @@ public abstract class PalindromeAnalyzerTest {
 				+ " Panama’s moody Noriega brags. "
 				+ "“It is garbage!” Irony dooms a man; a prisoner up to new era."));
 	}
+	
+	@Test
+	public void withNullPalindromeShouldReturnFalse() throws Exception {
+		assertFalse(analyzer.isPalindrome(null));
+	}
 }
