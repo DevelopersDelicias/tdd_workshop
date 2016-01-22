@@ -10,7 +10,8 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 	public boolean isPalindrome(String phrase) {
 		logger.debug("Phrase: " + phrase);
 		String phraseWithoutSpaces = phrase.replaceAll(" ", "").replaceAll("[?]", "").replaceAll("'", "")
-				.replaceAll(":", "").replaceAll("[.]", "").replaceAll("’", "");
+				.replaceAll(":", "").replaceAll("[.]", "").replaceAll("’", "").replaceAll("!", "")
+				.replaceAll(",", "");
 		logger.debug("Removing symbols: " + phraseWithoutSpaces);
 		String reversedPhrase = new StringBuilder(phraseWithoutSpaces).reverse().toString();
 		

@@ -42,14 +42,19 @@ public abstract class PalindromeAnalyzerTest {
 	public void withPalindromeThatHaveAposthrophesShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("No 'x' in Nixon"));
 	}
-	
+
 	@Test
 	public void withPalindromeThatHaveColonAndPeriodShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("Campus motto: Bottoms up Mac."));
 	}
-	
+
 	@Test
 	public void withPalindromeThatUseOtherApostropheShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("Marge lets Norah see Sharon’s telegram."));
+	}
+
+	@Test
+	public void withPalindromeThatHaveExclamationSymbolShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("A man, a plan, a canal, Panama!"));
 	}
 }
