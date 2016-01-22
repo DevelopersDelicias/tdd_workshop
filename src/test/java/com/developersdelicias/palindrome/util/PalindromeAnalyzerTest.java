@@ -47,4 +47,9 @@ public abstract class PalindromeAnalyzerTest {
 	public void withPalindromeThatHaveColonAndPeriodShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("Campus motto: Bottoms up Mac."));
 	}
+	
+	@Test
+	public void withPalindromeThatUseOtherApostropheShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Marge lets Norah see Sharon’s telegram."));
+	}
 }
