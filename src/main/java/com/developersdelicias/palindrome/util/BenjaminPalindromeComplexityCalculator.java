@@ -2,10 +2,14 @@ package com.developersdelicias.palindrome.util;
 
 public class BenjaminPalindromeComplexityCalculator implements PalindromeComplexityCalculator {
 
+	private PalindromeAnalyzer analyzer;
+	
+	public BenjaminPalindromeComplexityCalculator(PalindromeAnalyzer analyzer) {
+		this.analyzer = analyzer;
+	}
+	
 	@Override
 	public PalindromeComplexity calculate(String palindrome) throws InvalidPalindromeException {
-		
-		PalindromeAnalyzer analyzer = new BenjaminPalindromeAnalyzer();
 		
 		if (!analyzer.isPalindrome(palindrome)) {
 			throw new InvalidPalindromeException(palindrome  + " is not a palindrome");
