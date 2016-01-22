@@ -10,10 +10,15 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 	public boolean isPalindrome(String phrase) {
 		logger.debug("Phrase: " + phrase);
 		
-		if (phrase == null) {
+		if (phrase == null || phrase.isEmpty()) {
 			return false;
 		}
 		String phraseWithoutSymbols = phrase.replaceAll("[^a-zA-Z]", "");
+		
+		if (phraseWithoutSymbols.isEmpty()) {
+			return false;
+		}
+		
 		logger.debug("Removing symbols: " + phraseWithoutSymbols);
 		String reversedPhrase = new StringBuilder(phraseWithoutSymbols).reverse().toString();
 		

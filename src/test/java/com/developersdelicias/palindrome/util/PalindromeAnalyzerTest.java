@@ -70,4 +70,14 @@ public abstract class PalindromeAnalyzerTest {
 	public void withNullPalindromeShouldReturnFalse() throws Exception {
 		assertFalse(analyzer.isPalindrome(null));
 	}
+	
+	@Test
+	public void withEmptyStringShouldReturnFalse() throws Exception {
+		assertFalse(analyzer.isPalindrome(""));
+	}
+	
+	@Test
+	public void withOnlyNonAlphabeticCharsShouldReturnFalse() throws Exception {
+		assertFalse(analyzer.isPalindrome("!#$%&()=?+´*12345678980"));
+	}
 }
