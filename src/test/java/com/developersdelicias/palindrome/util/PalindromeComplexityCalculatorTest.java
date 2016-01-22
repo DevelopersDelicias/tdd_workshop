@@ -22,5 +22,14 @@ public abstract class PalindromeComplexityCalculatorTest {
 	public void withSevenWordsPalindromeShouldReturnHighComplexity() throws Exception {
 		assertSame(PalindromeComplexity.HIGH, calculator.calculate("A man, a plan, a canal, Panama!"));
 	}
+	
+	@Test
+	public void withInvalidPalindromeShouldThrowInvalidPalindromeException() throws Exception {
+		try {
+			calculator.calculate("not a palindrome");
+			fail("A InvalidPalindromeException is expected");
+		} catch (InvalidPalindromeException ipe) {
+		}
+	}
 
 }

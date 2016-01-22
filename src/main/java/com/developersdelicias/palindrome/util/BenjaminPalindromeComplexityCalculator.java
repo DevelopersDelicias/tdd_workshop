@@ -5,6 +5,11 @@ public class BenjaminPalindromeComplexityCalculator implements PalindromeComplex
 	@Override
 	public PalindromeComplexity calculate(String palindrome) throws InvalidPalindromeException {
 		
+		PalindromeAnalyzer analyzer = new BenjaminPalindromeAnalyzer();
+		
+		if (!analyzer.isPalindrome(palindrome)) {
+			throw new InvalidPalindromeException(palindrome  + " is not a palindrome");
+		}
 		int numberOfWords = palindrome.split(" ").length;
 		
 		if (numberOfWords < 4) {
