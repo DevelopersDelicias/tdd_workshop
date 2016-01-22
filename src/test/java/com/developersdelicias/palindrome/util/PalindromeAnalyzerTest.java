@@ -17,5 +17,10 @@ public abstract class PalindromeAnalyzerTest {
 	public void withNotRealPalindromeShouldReturnFalse() {
 		assertFalse(analyzer.isPalindrome("osos"));
 	}
+	
+	@Test
+	public void withPalindromeThatHaveSpacesShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("taco cat"));
+	}
 
 }
