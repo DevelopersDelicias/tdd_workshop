@@ -13,7 +13,7 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 		if (phrase == null || phrase.isEmpty()) {
 			return false;
 		}
-		String phraseWithoutSymbols = phrase.replaceAll("[^a-zA-Z]", "");
+		String phraseWithoutSymbols = phrase.replaceAll("[^a-zA-Z0-9]", "");
 		
 		if (phraseWithoutSymbols.isEmpty()) {
 			return false;
