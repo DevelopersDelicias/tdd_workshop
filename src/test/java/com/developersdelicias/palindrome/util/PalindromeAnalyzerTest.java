@@ -12,5 +12,10 @@ public abstract class PalindromeAnalyzerTest {
 	public void withSinglePalindromeShouldReturnTrue() {
 		assertTrue(analyzer.isPalindrome("oso"));
 	}
+	
+	@Test
+	public void withNotRealPalindromeShouldReturnFalse() {
+		assertFalse(analyzer.isPalindrome("osos"));
+	}
 
 }
