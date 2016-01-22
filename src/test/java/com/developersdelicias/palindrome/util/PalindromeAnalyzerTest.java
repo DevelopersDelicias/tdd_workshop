@@ -27,5 +27,10 @@ public abstract class PalindromeAnalyzerTest {
 	public void withPalindromeThatHaveUpperAndLowerCasesShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("Race car"));
 	}
+	
+	@Test
+	public void withPalindromeThatHaveCommaShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Amor, Roma"));
+	}
 
 }
