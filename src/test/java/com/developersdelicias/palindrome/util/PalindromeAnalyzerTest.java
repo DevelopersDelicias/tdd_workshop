@@ -22,5 +22,10 @@ public abstract class PalindromeAnalyzerTest {
 	public void withPalindromeThatHaveSpacesShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("taco cat"));
 	}
+	
+	@Test
+	public void withPalindromeThatHaveUpperAndLowerCasesShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Race car"));
+	}
 
 }
