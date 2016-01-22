@@ -57,4 +57,12 @@ public abstract class PalindromeAnalyzerTest {
 	public void withPalindromeThatHaveExclamationSymbolShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("A man, a plan, a canal, Panama!"));
 	}
+
+	@Test
+	public void withPalindromeThatHaveALotOfSymbolsShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome(
+				"Are we not pure? “No sir!”"
+				+ " Panama’s moody Noriega brags. "
+				+ "“It is garbage!” Irony dooms a man; a prisoner up to new era."));
+	}
 }
