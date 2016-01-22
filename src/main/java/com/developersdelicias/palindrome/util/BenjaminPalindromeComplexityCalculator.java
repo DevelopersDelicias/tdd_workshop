@@ -16,22 +16,30 @@ public class BenjaminPalindromeComplexityCalculator implements PalindromeComplex
 		}
 
 		if (isNumber(palindrome)) {
-			int numberOfDigits = palindrome.length();
-
-			if (numberOfDigits < 11) {
-				return PalindromeComplexity.LOW;
-			} else if (numberOfDigits < 21) {
-				return PalindromeComplexity.MEDIUM;
-			}
-
-			return PalindromeComplexity.HIGH;
+			return calculateNumberPalindrome(palindrome);
 		}
 
+		return calculateStringPalindrome(palindrome);
+	}
+
+	private PalindromeComplexity calculateStringPalindrome(String palindrome) {
 		int numberOfWords = palindrome.split(" ").length;
 
 		if (numberOfWords < 4) {
 			return PalindromeComplexity.LOW;
 		} else if (numberOfWords < 7) {
+			return PalindromeComplexity.MEDIUM;
+		}
+
+		return PalindromeComplexity.HIGH;
+	}
+
+	private PalindromeComplexity calculateNumberPalindrome(String palindrome) {
+		int numberOfDigits = palindrome.length();
+
+		if (numberOfDigits < 11) {
+			return PalindromeComplexity.LOW;
+		} else if (numberOfDigits < 21) {
 			return PalindromeComplexity.MEDIUM;
 		}
 
