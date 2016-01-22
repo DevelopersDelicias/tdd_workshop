@@ -42,4 +42,9 @@ public abstract class PalindromeAnalyzerTest {
 	public void withPalindromeThatHaveAposthrophesShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("No 'x' in Nixon"));
 	}
+	
+	@Test
+	public void withPalindromeThatHaveColonAndPeriodShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Campus motto: Bottoms up Mac."));
+	}
 }
