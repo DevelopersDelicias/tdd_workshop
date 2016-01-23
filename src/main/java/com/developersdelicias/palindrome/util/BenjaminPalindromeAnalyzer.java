@@ -6,7 +6,7 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 	public boolean isPalindrome(String phrase) {
 		String phraseWithoutSpaces = phrase.replaceAll(" ", "");
 		String reversed = new StringBuilder(phraseWithoutSpaces).reverse().toString();
-		return phraseWithoutSpaces.equals(reversed);
+		return phraseWithoutSpaces.equalsIgnoreCase(reversed);
 	}
 
 }
