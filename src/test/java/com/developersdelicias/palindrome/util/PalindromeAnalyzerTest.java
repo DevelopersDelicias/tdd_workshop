@@ -19,5 +19,10 @@ public abstract class PalindromeAnalyzerTest {
 	public void withNoPalindromeShouldReturnFalse() throws Exception {
 		assertFalse(analyzer.isPalindrome("osos"));
 	}
+	
+	@Test
+	public void withSpacesShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("taco cat"));
+	}
 
 }
