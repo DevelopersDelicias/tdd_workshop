@@ -49,5 +49,20 @@ public abstract class PalindromeAnalyzerTest {
 	public void withPuntoYDosPuntosShouldReturnTrue() throws Exception {
 		assertTrue(analyzer.isPalindrome("Campus motto: Bottoms up Mac."));
 	}
+	
+	@Test
+	public void withApostrophe2ShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Marge lets Norah see Sharon’s telegram."));
+	}
+	
+	@Test
+	public void withExclamationSignShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("A man, a plan, a canal, Panama!"));
+	}
+	
+	@Test
+	public void withAnySignShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era."));
+	}
 
 }
