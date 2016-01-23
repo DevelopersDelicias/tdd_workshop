@@ -30,5 +30,10 @@ public abstract class PalindromeAnalyzerTest {
 		assertTrue(analyzer.isPalindrome("Race car"));
 	}
 	
+	@Test
+	public void withCommaShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Amor, Roma"));
+	}
+	
 
 }
