@@ -4,7 +4,9 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 
 	@Override
 	public boolean isPalindrome(String phrase) {
-		return "oso".equals(phrase);
+		String phraseWithoutSpaces = phrase.replaceAll(" ", "");
+		String reversed = new StringBuilder(phraseWithoutSpaces).reverse().toString();
+		return phraseWithoutSpaces.equals(reversed);
 	}
 
 }
