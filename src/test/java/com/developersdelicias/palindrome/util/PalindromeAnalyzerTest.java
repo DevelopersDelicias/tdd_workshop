@@ -35,5 +35,9 @@ public abstract class PalindromeAnalyzerTest {
 		assertTrue(analyzer.isPalindrome("Amor, Roma"));
 	}
 	
+	@Test
+	public void withQuestionsShouldReturnTrue() throws Exception {
+		assertTrue(analyzer.isPalindrome("Was it a car or a cat I saw?"));
+	}
 
 }
