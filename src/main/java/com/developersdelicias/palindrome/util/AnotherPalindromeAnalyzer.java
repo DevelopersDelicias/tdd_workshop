@@ -7,14 +7,12 @@ public class AnotherPalindromeAnalyzer implements PalindromeAnalyzer {
 
 	@Override
 	public boolean isPalindrome(String phrase) {
-		logger.debug("Phrase is: " + phrase);
 
 		if (phrase == null) {
 			return false;
 		}
 
 		String phraseWithoutSpaces = phrase.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-		logger.debug("Removing spaces: " + phraseWithoutSpaces);
 
 		if (phraseWithoutSpaces.isEmpty()) {
 			return false;
@@ -28,11 +26,9 @@ public class AnotherPalindromeAnalyzer implements PalindromeAnalyzer {
 			final char firstLetter = firstHalfPhrase.charAt(i);
 			final char lastLetter = secondHalfPhrase.charAt(secondHalfPhrase.length() - i - 1);
 
-			logger.debug("First Letter:" + firstLetter);
-			logger.debug("Last Letter:" + lastLetter);
 			if (firstLetter != lastLetter) {
 				equals = false;
-				logger.debug("Letters are not equal");
+
 				break;
 			}
 		}
