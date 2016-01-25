@@ -1,8 +1,9 @@
 package com.developersdelicias.palindrome.util;
 
+import static org.mockito.Mockito.when;
+
 import org.junit.Before;
 import org.mockito.Mockito;
-import static org.mockito.Mockito.*;
 
 public class BenjaminNumberPalindromeGeneratorTest extends NumberPalindromeGeneratorTest {
 

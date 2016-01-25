@@ -13,6 +13,8 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 		if (phrase == null || phrase.isEmpty()) {
 			return false;
 		}
+		
+		logger.debug("Phrase length: " + phrase.length());
 		String phraseWithoutSymbols = phrase.replaceAll("[^a-zA-Z0-9]", "");
 		
 		if (phraseWithoutSymbols.isEmpty()) {
@@ -20,10 +22,18 @@ public class BenjaminPalindromeAnalyzer implements PalindromeAnalyzer {
 		}
 		
 		logger.debug("Removing symbols: " + phraseWithoutSymbols);
+		logger.debug("Phrase length after remove symbols: " + phraseWithoutSymbols.length());
 		String reversedPhrase = new StringBuilder(phraseWithoutSymbols).reverse().toString();
 		
 		logger.debug("Reversed: " + reversedPhrase);
 		return phraseWithoutSymbols.equalsIgnoreCase(reversedPhrase);
 	}
+
+	@Override
+	public String toString() {
+		return "BenjaminPalindromeAnalyzer";
+	}
+	
+	
 
 }
