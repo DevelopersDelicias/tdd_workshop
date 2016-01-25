@@ -74,4 +74,20 @@ public class TestPalindromeProvider {
 		list.add("!#$%&()=?+´*12345678980");
 		return list;	
 	}
+	
+	public static Object[][] nextNumberPalindromeTestCases() {
+		return new Object[][] {
+				new Object[] {11L, 10L},
+				new Object[] {22L, 11L},
+				new Object[] {33L, 22L},
+				new Object[] {101L, 99L},
+				new Object[] {111L, 101L},
+				new Object[] {121L, 111L},
+				new Object[] {202L, 191L},
+				new Object[] {1001L, 999L},
+				new Object[] {1111L, 1001L},
+				new Object[] {1221L, 1111L},
+				new Object[] {1235321L, 1234567L},
+		};
+	}
 }
