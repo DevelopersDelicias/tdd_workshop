@@ -1,14 +1,10 @@
 package com.developersdelicias.palindrome.util;
 
-import org.apache.log4j.Logger;
-
 public class AnotherPalindromeAnalyzer implements PalindromeAnalyzer {
-	private static final Logger logger = Logger.getLogger(AnotherPalindromeAnalyzer.class);
 
 	@Override
 	public boolean isPalindrome(String phrase) {
-		
-		logger.info("Checking if " + phrase + " is a palindrome");
+
 		if (phrase == null) {
 			return false;
 		}

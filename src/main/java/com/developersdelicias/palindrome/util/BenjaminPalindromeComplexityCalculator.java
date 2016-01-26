@@ -10,7 +10,6 @@ public class BenjaminPalindromeComplexityCalculator implements PalindromeComplex
 
 	@Override
 	public PalindromeComplexity calculate(String palindrome) throws InvalidPalindromeException {
-
 		if (!analyzer.isPalindrome(palindrome)) {
 			throw new InvalidPalindromeException(palindrome + " is not a palindrome");
 		}

@@ -47,7 +47,7 @@ public abstract class PalindromeAnalyzerTest {
 		assertFalse(palindrome + " should not be a palindrome.", analyzer.isPalindrome(palindrome));
 	}
 
-	@Test // (timeout = 1000)
+	@Test(timeout = 10)
 	public void withLongestPalindromeShouldHaveAcceptablePerformance() throws Exception {
 		long initTime = System.currentTimeMillis();
 		assertTrue(analyzer.isPalindrome(longestPalindrome));
@@ -59,8 +59,8 @@ public abstract class PalindromeAnalyzerTest {
 	public static void printResults() {
 		int place = 1;
 		logger.info("Performance contest:");
-		for(Map.Entry<Long, PalindromeAnalyzer> entry: analyzers.entrySet()) {
-			logger.debug(place++ + ".- " + entry.getValue() + " with " + entry.getKey() + " milliseconds");
+		for (Map.Entry<Long, PalindromeAnalyzer> entry : analyzers.entrySet()) {
+			logger.debug(String.format("%d.- %s with %d milliseconds", place++, entry.getValue(), entry.getKey()));
 		}
 	}
 

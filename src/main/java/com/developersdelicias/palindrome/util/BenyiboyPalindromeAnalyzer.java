@@ -1,10 +1,6 @@
 package com.developersdelicias.palindrome.util;
 
-import org.apache.log4j.Logger;
-
 public class BenyiboyPalindromeAnalyzer implements PalindromeAnalyzer {
-
-	Logger logger = Logger.getLogger(BenyiboyPalindromeAnalyzer.class);
 
 	@Override
 	public boolean isPalindrome(String phrase) {
