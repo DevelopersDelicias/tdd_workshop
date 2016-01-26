@@ -7,7 +7,8 @@ public class AnotherPalindromeAnalyzer implements PalindromeAnalyzer {
 
 	@Override
 	public boolean isPalindrome(String phrase) {
-
+		
+		logger.info("Checking if " + phrase + " is a palindrome");
 		if (phrase == null) {
 			return false;
 		}
