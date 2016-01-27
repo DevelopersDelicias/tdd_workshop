@@ -47,7 +47,7 @@ public abstract class PalindromeAnalyzerTest {
 		assertFalse(palindrome + " should not be a palindrome.", analyzer.isPalindrome(palindrome));
 	}
 
-	@Test(timeout = 10)
+	@Test(timeout = 100)
 	public void withLongestPalindromeShouldHaveAcceptablePerformance() throws Exception {
 		long initTime = System.currentTimeMillis();
 		assertTrue(analyzer.isPalindrome(longestPalindrome));
