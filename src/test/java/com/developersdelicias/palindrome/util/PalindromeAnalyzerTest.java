@@ -1,21 +1,19 @@
 package com.developersdelicias.palindrome.util;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.Map;
-import java.util.TreeMap;
-
+import com.developersdelicias.util.file.FileUtils;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.developersdelicias.util.file.FileUtils;
+import java.util.Map;
+import java.util.TreeMap;
 
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnitParamsRunner.class)
 public abstract class PalindromeAnalyzerTest {
@@ -47,6 +45,7 @@ public abstract class PalindromeAnalyzerTest {
 		assertFalse(palindrome + " should not be a palindrome.", analyzer.isPalindrome(palindrome));
 	}
 
+
 	@Test(timeout = 100)
 	public void withLongestPalindromeShouldHaveAcceptablePerformance() throws Exception {
 		long initTime = System.currentTimeMillis();
@@ -54,6 +53,7 @@ public abstract class PalindromeAnalyzerTest {
 		analyzers.put(System.currentTimeMillis() - initTime, analyzer);
 
 	}
+
 
 	@AfterClass
 	public static void printResults() {
