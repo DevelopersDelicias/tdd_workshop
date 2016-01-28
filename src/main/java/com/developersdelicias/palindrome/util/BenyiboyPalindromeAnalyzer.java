@@ -2,25 +2,30 @@ package com.developersdelicias.palindrome.util;
 
 public class BenyiboyPalindromeAnalyzer implements PalindromeAnalyzer {
 
-	@Override
-	public boolean isPalindrome(String phrase) {
+    @Override
+    public boolean isPalindrome(String phrase) {
 
-		if (phrase == null || phrase.isEmpty()) {
-			return false;
-		}
+        if (phrase == null || phrase.isEmpty()) {
+            return false;
+        }
 
-		String phraseWithoutSymbols = phrase.replaceAll("[^a-zA-Z0-9]", "");
-		int length = phraseWithoutSymbols.length();
-		String firstHalfString = phraseWithoutSymbols.substring(0, length / 2);
-		String reversed = new StringBuilder(phraseWithoutSymbols).reverse().toString();
-		String secondHalfStringReversed = reversed.substring(0, length / 2);
+        String phraseWithoutSymbols = phrase.replaceAll("[^a-zA-Z0-9]", "");
 
-		return firstHalfString.equalsIgnoreCase(secondHalfStringReversed);
-	}
+        if (phraseWithoutSymbols.isEmpty()) {
+            return false;
+        }
 
-	@Override
-	public String toString() {
-		return "BenyiboyPalindromeAnalyzer";
-	}
+        int length = phraseWithoutSymbols.length();
+        String firstHalfString = phraseWithoutSymbols.substring(0, length / 2);
+        String reversed = new StringBuilder(phraseWithoutSymbols).reverse().toString();
+        String secondHalfStringReversed = reversed.substring(0, length / 2);
+
+        return firstHalfString.equalsIgnoreCase(secondHalfStringReversed);
+    }
+
+    @Override
+    public String toString() {
+        return "BenyiboyPalindromeAnalyzer";
+    }
 
 }

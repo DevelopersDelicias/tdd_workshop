@@ -72,6 +72,7 @@ public class TestPalindromeProvider {
 		list.add(null);
 		list.add("not a palindrome");
 		list.add("!#$%&()=?+´*12345678980");
+		list.add("!#$%&()=?+´");
 		return list;	
 	}
 	

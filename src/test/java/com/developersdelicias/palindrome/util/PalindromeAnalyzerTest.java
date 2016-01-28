@@ -54,7 +54,6 @@ public abstract class PalindromeAnalyzerTest {
 
 	}
 
-
 	@AfterClass
 	public static void printResults() {
 		int place = 1;
