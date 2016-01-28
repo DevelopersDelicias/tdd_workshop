@@ -1,19 +1,23 @@
 package com.developersdelicias.palindrome.util;
 
-import com.developersdelicias.util.file.FileUtils;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.Map;
-import java.util.TreeMap;
+import com.developersdelicias.util.file.FileUtils;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 
 @RunWith(JUnitParamsRunner.class)
 public abstract class PalindromeAnalyzerTest {
@@ -24,7 +28,11 @@ public abstract class PalindromeAnalyzerTest {
 	private static Logger logger = Logger.getLogger(PalindromeAnalyzerTest.class);
 
 	static {
-		longestPalindrome = FileUtils.getResourceAsString("/longest_palindrome.txt");
+		try {
+			longestPalindrome = FileUtils.getResourceAsString("/longest_palindrome.txt");
+		} catch (IOException e) {
+			fail("Failed test due we cannot open longest_palindrome.txt file: " + e.getMessage());
+		}
 		analyzers = new TreeMap<>();
 	}
 
