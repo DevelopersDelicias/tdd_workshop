@@ -9,12 +9,17 @@ import java.io.InputStreamReader;
 public final class FileUtils {
 
 	public static String getResourceAsString(String resourceFile) throws IOException {
+		InputStream stream = getInputStreamFromResourceFile(resourceFile);
+		return inputStreamToString(stream);
+	}
+
+	public static InputStream getInputStreamFromResourceFile(String resourceFile) throws FileNotFoundException {
 		InputStream stream = FileUtils.class.getResourceAsStream(resourceFile);
 		
 		if (stream == null) {
 			throw new FileNotFoundException(String.format("%s file does not exists.", resourceFile));
 		}
-		return inputStreamToString(stream);
+		return stream;
 	}
 
 	private static String inputStreamToString(InputStream inputStream) throws IOException {
