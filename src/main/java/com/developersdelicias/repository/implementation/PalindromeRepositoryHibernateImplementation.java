@@ -13,26 +13,21 @@ import com.developersdelicias.repository.PalindromeRepository;
 @Repository
 public class PalindromeRepositoryHibernateImplementation implements PalindromeRepository {
 
-	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public PalindromeRepositoryHibernateImplementation() {
-		
-	}
-	
+
+	@Autowired
 	public PalindromeRepositoryHibernateImplementation(SessionFactory _sessionFactory) {
 		sessionFactory = _sessionFactory;
 	}
 
-
 	@Override
 	public List<Palindrome> retrieveAll() {
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		@SuppressWarnings("unchecked")
 		final List<Palindrome> list = session.createQuery("from Palindrome").list();
-        
-        return list;
+
+		return list;
 	}
 
 }
