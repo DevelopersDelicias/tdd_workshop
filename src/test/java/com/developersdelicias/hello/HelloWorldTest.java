@@ -1,28 +1,38 @@
 package com.developersdelicias.hello;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class HelloWorldTest {
 
+	private static final String DEFAULT_RESULT = "Hello World!";
+	private HelloWorld hello;
+
+	@Before
+	public void setUp() {
+		hello = new HelloWorld();
+	}
+
 	@Test
 	public void testSayHello() {
-		HelloWorld hello = new HelloWorld();
-		String name = "Benjamin";
-		String expected = "Hello Benjamin!";
-		String result = hello.sayHello(name);
-
-		assertEquals(expected, result);
+		assertEquals("Hello Benjamin!", hello.sayHello("Benjamin"));
 	}
 
 	@Test
 	public void testSayHelloWithNullValue() {
-		HelloWorld hello = new HelloWorld();
-		String name = null;
-		String expected = "Hello World!";
-		String result = hello.sayHello(name);
-		assertEquals(expected, result);
+		assertEquals(DEFAULT_RESULT, hello.sayHello(null));
+	}
+
+	@Test
+	public void testSayHelloWithEmptyString() throws Exception {
+		assertEquals(DEFAULT_RESULT, hello.sayHello(""));
+	}
+
+	@Test
+	public void testSayHelloWithSpaces() throws Exception {
+		assertEquals(DEFAULT_RESULT, hello.sayHello("      "));
 	}
 
 }
