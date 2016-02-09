@@ -1,5 +1,7 @@
 package com.developersdelicias.repository;
 
+import static org.junit.Assert.*;
+
 import javax.sql.DataSource;
 
 import org.dbunit.database.DatabaseDataSourceConnection;
@@ -8,7 +10,6 @@ import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.operation.DatabaseOperation;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +18,15 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.developersdelicias.configuration.DatabaseUnitTestsConfiguration;
+import com.developersdelicias.model.EntityObject;
 
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = DatabaseUnitTestsConfiguration.class)
 
-public abstract class RepositoryTest extends AbstractTransactionalJUnit4SpringContextTests {
+public abstract class RepositoryTest<E extends EntityObject> extends AbstractTransactionalJUnit4SpringContextTests {
 
 	@Autowired
 	DataSource dataSource;
-	protected Repository<?> repository; 
+	protected Repository<E> repository;
 
 	protected IDataSet dataSet;
 
@@ -38,12 +40,21 @@ public abstract class RepositoryTest extends AbstractTransactionalJUnit4SpringCo
 	@Test
 	public void testList() throws DataSetException {
 		ITable expectedTable = dataSet.getTable(getTableName());
-		Assert.assertEquals(expectedTable.getRowCount(), repository.retrieveAll().size());
+		assertEquals(expectedTable.getRowCount(), repository.retrieveAll().size());
 	}
+
+	@Test
+	public void addShouldCreateNewEntityInRepository() throws Exception {
+		E entityToCreate = getEntityToCreate();
+		E entityCreated = repository.add(entityToCreate);
+		assertEquals(entityToCreate, entityCreated);
+		assertTrue(repository.retrieveAll().contains(entityToCreate));
+	}
+
+	protected abstract E getEntityToCreate();
 
 	protected abstract IDataSet getDataSet() throws Exception;
 
 	protected abstract String getTableName();
-
 
 }

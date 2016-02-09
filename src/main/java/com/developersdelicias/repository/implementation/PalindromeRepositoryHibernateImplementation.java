@@ -30,4 +30,12 @@ public class PalindromeRepositoryHibernateImplementation implements PalindromeRe
 		return list;
 	}
 
+	@Override
+	public Palindrome add(Palindrome entity) {
+		Session session = sessionFactory.getCurrentSession();
+		Long id = (Long) session.save(entity);
+		entity.setId(id);
+		return entity;
+	}
+
 }

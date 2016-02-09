@@ -9,7 +9,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PALINDROMES")
-public class Palindrome {
+public class Palindrome implements EntityObject {
+
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +34,5 @@ public class Palindrome {
 	public void setPhrase(String phrase) {
 		this.phrase = phrase;
 	}
-	
-	
 
 }

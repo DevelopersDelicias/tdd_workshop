@@ -16,5 +16,13 @@ public interface Repository<E> {
 	 * @return A list of objects of type E
 	 */
 	public List<E> retrieveAll();
+	
+	
+	/**
+	 * 
+	 * @param entity
+	 * @return
+	 */
+	public E add(E entity);
 
 }
