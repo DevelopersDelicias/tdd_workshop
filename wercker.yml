@@ -1,5 +1,5 @@
 box: maven:latest
 build:
   steps:
-    - script:
+    - xenoterracide/maven:
         goals: test
