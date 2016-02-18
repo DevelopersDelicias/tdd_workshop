@@ -1,14 +1,5 @@
-box: java
+box: maven:latest
 build:
   steps:
-    - script:
-        name: Show base information
-          code: |
-            mvn -v
-            echo $JAVA_HOME
-            java -version
-            javac -version
-      - script:
-          name: Run maven
-          code: |
-            mvn clean install
+    - xenoterracide/maven:
+        goals: test
