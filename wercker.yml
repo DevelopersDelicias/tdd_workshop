@@ -1,5 +1,14 @@
 box: maven:latest
 build:
   steps:
-    - bcisneros/maven:
-        goals: test
+    - script:
+        name: Show base information
+          code: |
+            mvn -v
+            echo $JAVA_HOME
+            java -version
+            javac -version
+      - script:
+          name: Run maven
+          code: |
+            mvn clean install
