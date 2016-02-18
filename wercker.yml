@@ -1,5 +1,5 @@
 box: maven:latest
 build:
   steps:
-    - script/maven:
+    - script: |
         goals: test
