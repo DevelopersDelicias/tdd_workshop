@@ -1,4 +1,4 @@
-box: maven:latest
+box: java
 build:
   steps:
     - xenoterracide/maven:
